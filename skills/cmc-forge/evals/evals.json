@@ -1,0 +1,153 @@
+{
+  "skill_name": "cmc-forge",
+  "version": "2.1",
+  "evals": [
+    {
+      "id": 1,
+      "mode": "ASSESS",
+      "prompt": "我们有一个双抗候选，当前瞬转表达量约 1.6 g/L，SEC 聚体 3.8%，计划明年做 IND。请先做一版 developability + fit-for-phase 评估，并告诉我未来 60 天最该优先补哪些 CMC 工作。",
+      "expected_output": "A fit-for-phase candidate assessment that combines developability judgment with early CMC prioritization, includes explicit risks, and ends with a 60-day action package plus human review boundaries.",
+      "files": [],
+      "expectations": [
+        "The output separates current facts from assumptions or missing evidence.",
+        "The output includes a red-yellow-green or equivalent risk framing for the candidate.",
+        "The output distinguishes must-solve-now items from items that can be deferred.",
+        "The output proposes a concrete next-60-day work package.",
+        "The output includes a human-review or controlled-review boundary statement."
+      ]
+    },
+    {
+      "id": 2,
+      "mode": "ASSESS",
+      "prompt": "帮我做一个 IND 前 CMC readiness/gap assessment。产品是单抗冻干制剂，已有 2 批毒理批、1 批临床样品试制，分析方法大多处于 qualification 阶段。请输出一个 stage-gate readiness pack。",
+      "expected_output": "A stage-gate readiness package with scope, evidence snapshot, critical gaps, risks, and recommended next actions aligned to an IND-preparation context.",
+      "files": [],
+      "expectations": [
+        "The output is structured like a readiness pack rather than a loose essay.",
+        "The output identifies stage and decision objective explicitly.",
+        "The output includes a gap log or equivalent missing-evidence section.",
+        "The output calls out analytical maturity appropriately for the stage.",
+        "The output names functions or reviewers who should review before use."
+      ]
+    },
+    {
+      "id": 3,
+      "mode": "DRAFT",
+      "prompt": "我们准备更换 Protein A 后面的关键抛光树脂供应商，请先搭一版 change impact assessment 和 comparability strategy。希望你能把 CQA 影响、需要的证据层次、以及可能的监管路径假设写清楚。",
+      "expected_output": "A change and comparability package that frames the change, links it to CQA and process impact, proposes evidence layers, and notes regulatory-path assumptions without overstating conclusions.",
+      "files": ["templates/change-comparability-template.md"],
+      "expectations": [
+        "The output clearly describes current state versus proposed state.",
+        "The output includes a product-quality or CQA-focused impact hypothesis.",
+        "The output proposes an analytical comparability evidence layer.",
+        "The output distinguishes assumptions from final regulatory conclusions.",
+        "The output ends with open questions or required human review."
+      ]
+    },
+    {
+      "id": 4,
+      "mode": "PLAN",
+      "prompt": "我们准备把现有 mAb 工艺从内部工艺开发转给一家新的 CDMO，请先起草一个 technology transfer work package，重点包括要转移的知识、分析包、关键风险、review gates 和 open issues。",
+      "expected_output": "A technology transfer work package with transfer scope, critical knowledge areas, workstreams, milestones, risks, and review gates suitable for CMC/project coordination.",
+      "files": ["templates/tech-transfer-template.md"],
+      "expectations": [
+        "The output is organized as a transfer package, not generic advice.",
+        "The output includes what knowledge must be preserved during transfer.",
+        "The output includes workstreams and milestones or review gates.",
+        "The output includes risks and open issues with owners or owner types.",
+        "The output includes explicit human review roles."
+      ]
+    },
+    {
+      "id": 5,
+      "mode": "PLAN",
+      "prompt": "请基于 biologics BLA 申报语境，先帮我把 Module 3 的 authoring workplan 搭起来。不要写正式 CTD 正文，先给 section map、source document inventory、missing content log 和一致性检查清单。",
+      "expected_output": "A Module 3 authoring workplan that focuses on dossier structure, source tracking, missing content, and consistency checks rather than pretending to write final submission text.",
+      "files": ["templates/module3-workplan-template.md"],
+      "expectations": [
+        "The output stays at workplan level and does not pretend to be final CTD text.",
+        "The output includes a section map or equivalent dossier structure.",
+        "The output includes source document inventory or source tracking.",
+        "The output includes missing-content tracking.",
+        "The output includes consistency checks and review roles."
+      ]
+    },
+    {
+      "id": 6,
+      "mode": "TRAIN",
+      "prompt": "把'工艺变更与 comparability'这个主题转成一套内部培训资产，输出一个 60 分钟培训大纲 + FAQ bank + quick-reference checklist，受众是刚转岗到 CMC 的同事。",
+      "expected_output": "A structured internal training package with audience-aware learning design, a 60-minute outline, FAQ bank, and quick-reference checklist suitable for onboarding.",
+      "files": ["playbooks/content-structuring.md", "playbooks/risk-comparability.md"],
+      "expectations": [
+        "The output identifies audience and learning objective.",
+        "The output includes a time-boxed training outline.",
+        "The output includes an FAQ bank or equivalent recurring-question section.",
+        "The output includes a quick-reference checklist or decision aid.",
+        "The output is framed as reusable knowledge asset rather than pure narrative explanation."
+      ]
+    },
+    {
+      "id": 7,
+      "mode": "DRAFT",
+      "prompt": "帮我起草一份 mAb 的 Stage 2 PPQ Protocol 框架。产品是 IgG1 单抗，500L 生物反应器，3批连续生产。需要包括统计学的批次数论证、双层验收标准（符合性+一致性）和偏差管理流程。",
+      "expected_output": "A PPQ protocol framework with statistically justified batch number, two-tier acceptance criteria (conformance + consistency), sampling plan, and deviation management, labeled as draft for controlled review.",
+      "files": ["templates/process-validation-protocol-framework.md"],
+      "expectations": [
+        "The output includes a statistical justification for the batch number (3 batches).",
+        "The output defines Tier 1 (conformance) and Tier 2 (consistency) acceptance criteria.",
+        "The output includes a sampling plan with specific sampling points.",
+        "The output includes deviation management and protocol amendment procedures.",
+        "The output is labeled as Draft for controlled review."
+      ]
+    },
+    {
+      "id": 8,
+      "mode": "ASSESS",
+      "prompt": "我们的分析方法大多是 qualification 状态，马上要进 Phase III。请帮我做一版 analytical lifecycle gap assessment，告诉我每个方法从 qualification 到 validation 还差什么。",
+      "expected_output": "An analytical method lifecycle assessment that maps current method status against ICH Q2(R2)/Q14 expectations, identifies gaps method-by-method, and produces an upgrade action plan.",
+      "files": [],
+      "expectations": [
+        "The output classifies each method type (identity, purity, potency, safety).",
+        "The output maps current qualification status against ICH Q2(R2)/Q14 requirements.",
+        "The output identifies specific validation parameters still needed per method.",
+        "The output includes a prioritized upgrade timeline.",
+        "The output flags methods that may need redevelopment rather than just validation."
+      ]
+    },
+    {
+      "id": 9,
+      "mode": "PLAN",
+      "prompt": "我们是一家中国 Biotech，单抗项目准备先走 CDE IND，同时希望两年后能支持 FDA IND/Type C meeting。请帮我搭一个 China-first then global 的 CMC evidence roadmap，要求区分 global core package、CDE delta、FDA delta、双语术语表和未来 90 天行动项。",
+      "expected_output": "A China-first/global-ready CMC roadmap that separates global core evidence from CDE and FDA regional deltas, includes bilingual terminology control, and produces a prioritized 90-day action plan.",
+      "files": [
+        "references/china-global-cmc-operating-model.md",
+        "references/regulatory-anchors.md"
+      ],
+      "expectations": [
+        "The output identifies the company posture as China-first then global.",
+        "The output separates global core CMC evidence from CDE and FDA deltas.",
+        "The output includes a bilingual terminology table or terminology-control approach.",
+        "The output includes near-term actions prioritized for the next 90 days.",
+        "The output flags RA confirmation items and avoids final legal/regulatory classification claims."
+      ]
+    },
+    {
+      "id": 10,
+      "mode": "ASSESS",
+      "prompt": "我们准备把一个已在海外上市的生物制品转到中国本地生产，请做一版 CMC localization gap assessment，重点看技术转移、可比性、NMPA/CDE 路径假设、质量体系和数据包差距。",
+      "expected_output": "A China localization CMC gap assessment for overseas-to-domestic manufacturing transfer, covering tech transfer, comparability, China regulatory-path assumptions, quality-system readiness, and dossier gaps.",
+      "files": [
+        "references/china-global-cmc-operating-model.md",
+        "templates/tech-transfer-template.md",
+        "templates/change-comparability-template.md"
+      ],
+      "expectations": [
+        "The output identifies the posture as inbound localization.",
+        "The output distinguishes current overseas package, China manufacturing transfer evidence, and CDE/NMPA delta gaps.",
+        "The output includes comparability and site-readiness risks.",
+        "The output includes data integrity and system-of-record boundaries.",
+        "The output names RA/QA/CMC/MSAT review roles before use."
+      ]
+    }
+  ]
+}

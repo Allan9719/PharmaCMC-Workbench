@@ -1,0 +1,61 @@
+PharmaSee CMC Workbench
+Copyright 2026 PharmaSee CMC Workbench Contributors
+
+This product includes software and content developed by
+PharmaSee CMC Workbench Contributors (https://github.com/Allan9719/PharmaCMC-Workbench).
+
+---
+
+Third-Party Notices
+-------------------
+
+1. Scientific Writer — Writing Quality Audit Module
+
+   The 5-pass writing quality review workflow is adapted from the SciWrite project:
+
+   - SciWrite fork: https://github.com/Allan9719/sci_write
+   - Original SciWrite project: https://github.com/labarba/sciwrite
+   - License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+     https://creativecommons.org/licenses/by/4.0/
+
+   Changes: Merged section-level writing models with the 5-pass prose-review
+   workflow; added WRITE / REVIEW / DIAGNOSE / LEARN modes; created local
+   compact reference files for manuscript-section scaffolding and writing-quality
+   checks.
+
+   This SciWrite-derived content is distributed under CC BY 4.0 alongside the
+   Apache 2.0 license covering the rest of the Workbench. Both licenses apply
+   to their respective scope.
+
+2. Scientific Writer — Section Structure Models
+
+   The section models and Narrative Wrap workflow are inspired by:
+
+   Hilary Glasman-Deal, "Science Research Writing for Native and Non-Native
+   Speakers of English", 2nd edition, 2020.
+
+   These materials are summarized as operational writing guidance. The private
+   extraction notes (skills/scientific-writer/extracted-models/) are excluded
+   from public release. Do not redistribute the source book or long
+   source-derived excerpts unless you hold the appropriate rights.
+
+3. CMC Research — Regulatory Knowledge Base
+
+   Regulatory references (NMPA, CDE, ICH, FDA, EMA, Chinese Pharmacopoeia 2025)
+   are cited for informational purposes. Official guidance documents are
+   property of their respective agencies and cited under fair-use principles.
+
+---
+
+Disclaimer
+----------
+
+PharmaSee CMC Workbench is a draft and knowledge workbench. It does NOT
+replace QA, RA, QP, or SME professional judgment. Outputs are drafts for
+controlled review only — not GMP-controlled documents. The workbench must
+not be used to fabricate batch data, specifications, validation results,
+or regulatory conclusions.
+
+Regulatory knowledge is a local snapshot, not a live database. Verify
+current requirements against official agency and pharmacopoeial sources
+before relying on any output.

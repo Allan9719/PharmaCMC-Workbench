@@ -1,0 +1,337 @@
+{
+  "meta": {
+    "name": "PharmaSee CMC Workbench — Integrated Evaluation Suite",
+    "version": "1.0",
+    "date": "2026-04-26",
+    "description": "Cross-module evaluation scenarios covering all 5 integrated workflows. Each scenario tests multi-module orchestration, not just single-skill capability.",
+    "compliance_note": "All outputs must carry DRAFT header. No fabricated batch data, specifications, validation results, or regulatory conclusions."
+  },
+  "scenarios": [
+    {
+      "id": "WB-EVAL-001",
+      "title": "China Biotech mAb — China-First then Global CMC Roadmap",
+      "workflow": "03-china-global-roadmap",
+      "modules": ["CMC_Research", "CMC_Forge"],
+      "modes": ["ASSESS", "PLAN"],
+      "difficulty": "advanced",
+      "prompt": "I work at a Chinese biotech company developing a novel anti-PD-1 IgG4 mAb (BG-001). We completed Phase I in China, Phase II is ongoing at 3 sites. Manufacturing is at our internal 200L/500L facility with qualified (not validated) analytical methods and 12-month stability data. We want to file US FDA IND by Q4 2027 and EU CTA by Q1 2028. Please: (1) Look up China and global regulatory requirements from the CMC knowledge base. (2) Assess our CMC readiness for global expansion. (3) Create a phased evidence roadmap.",
+      "expected_output": {
+        "description": "A structured China-first-then-global CMC roadmap with: (a) Company posture identification, (b) regulatory landscape comparison from CMC Research, (c) Red-Yellow-Green gap assessment across 8+ dimensions, (d) Phased evidence roadmap with milestones, (e) Key risks and mitigations.",
+        "must_include": [
+          "Company posture classified as 'China-first then global'",
+          "At least 8 dimensions scored Red/Yellow/Green",
+          "Regulatory context cited from CMC Research sources",
+          "Phased timeline from foundation through global bridge",
+          "DRAFT header with classification level and reviewer assignments"
+        ]
+      },
+      "files_to_load": [
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/china_cmc_special/regulatory_framework.md",
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/declaration_practice/ind_cmc_zh.md",
+        "skills/cmc-forge/SKILL.md",
+        "skills/cmc-forge/references/china-global-cmc-operating-model.md",
+        "skills/cmc-forge/templates/stage-gate-readiness-template.md"
+      ],
+      "expectations": [
+        "Correctly identifies 'China-first then global' posture from operating model",
+        "Loads and cites CMC Research regulatory framework (not hallucinated regulations)",
+        "Applies ASSESS mode with Red-Yellow-Green scoring (not just prose description)",
+        "Creates phased PLAN with concrete milestones (not vague recommendations)",
+        "Includes DRAFT compliance header — no output without it"
+      ]
+    },
+    {
+      "id": "WB-EVAL-002",
+      "title": "Overseas Biologic → China Local Manufacturing CMC Localization Gap",
+      "workflow": "03-china-global-roadmap + 04-tech-transfer-comparability",
+      "modules": ["CMC_Research", "CMC_Forge"],
+      "modes": ["ASSESS", "DRAFT"],
+      "difficulty": "advanced",
+      "prompt": "Our company has an approved anti-TNFα IgG1 mAb (GB-500) sold in 50+ countries. We currently manufacture at our EU site (2000L stainless steel) and want to transfer to a Chinese CDMO using single-use 500L/1000L bioreactors by 2028. The drug is already sold in China via import license. Please: (1) Identify the NMPA regulatory pathway for this manufacturing site addition. (2) Assess gaps for tech transfer from stainless steel 2000L to single-use 500L. (3) Draft a comparability strategy covering all three steps. (4) Outline the tech transfer work package.",
+      "expected_output": {
+        "description": "A comprehensive localization gap assessment with: (a) NMPA variation classification (major change), (b) Tech transfer gap register, (c) Three-step comparability plan with acceptance criteria, (d) Tech transfer work package with phased timeline.",
+        "must_include": [
+          "Posture identified as 'Inbound localization'",
+          "NMPA variation classification as major change with justification",
+          "Cell bank transfer requirements (NIFDC)",
+          "Three-step comparability (analytical → non-clinical → clinical bridge)",
+          "CDMO quality agreement considerations (MAH template reference)",
+          "DRAFT header"
+        ]
+      },
+      "files_to_load": [
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/declaration_practice/variation_report.md",
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/quality_system/process_validation.md",
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/quality_system/mah_management.md",
+        "knowledge/CMC_Research/resources/zh-CN/templates/practice/mah_quality_agreement_template.md",
+        "skills/cmc-forge/SKILL.md",
+        "skills/cmc-forge/templates/tech-transfer-template.md",
+        "skills/cmc-forge/templates/change-comparability-template.md",
+        "skills/cmc-forge/playbooks/risk-comparability.md"
+      ],
+      "expectations": [
+        "Identifies NMPA major change pathway with correct classification basis",
+        "Addresses cell bank transfer to China (NIFDC testing requirement)",
+        "Produces FMEA risk register with RPN scores (not just qualitative risks)",
+        "Includes three-step comparability with trigger logic (when to escalate)",
+        "References MAH quality agreement template from CMC Research",
+        "All data in examples marked as fictional"
+      ]
+    },
+    {
+      "id": "WB-EVAL-003",
+      "title": "Module 3 Authoring Workplan for BsAb BLA",
+      "workflow": "02-module3-authoring",
+      "modules": ["CMC_Research", "CMC_Forge", "Scientific_Writer"],
+      "modes": ["PLAN", "DRAFT", "REVIEW"],
+      "difficulty": "advanced",
+      "prompt": "We are preparing a BLA Module 3 for NB-101, a bispecific antibody (anti-PD-L1 × TGF-β trap) for hepatocellular carcinoma. Phase III is complete in China. We have 24-month stability data, validated analytical methods, and 3 PPQ batches. Please: (1) Create a Module 3 workplan with complete CTD section map. (2) Identify source documents needed and gaps. (3) Draft the 3.2.S.3 Characterization section outline. (4) Review the English executive summary we've drafted for writing quality.",
+      "expected_output": {
+        "description": "A complete Module 3 authoring package with: (a) CTD section map with readiness status, (b) Source document inventory, (c) Draft 3.2.S.3 outline, (d) English summary writing quality audit (5-pass).",
+        "must_include": [
+          "Complete CTD section map (3.2.S, 3.2.P, 3.2.A, 3.2.R)",
+          "Source document inventory with version numbers",
+          "BsAb-specific characterization requirements (dual-binding, forced pairing)",
+          "Missing content log",
+          "5-pass writing audit on English summary with CRITICAL/MAJOR/MINOR ratings",
+          "DRAFT header"
+        ]
+      },
+      "files_to_load": [
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/biologic_drug/biologic_basic.md",
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/declaration_practice/nda_cmc_zh.md",
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/cross_category/cmc_difference.md",
+        "skills/cmc-forge/SKILL.md",
+        "skills/cmc-forge/templates/module3-workplan-template.md",
+        "skills/cmc-forge/references/quality-checklist.md",
+        "skills/scientific-writer/SKILL.md",
+        "skills/scientific-writer/references/writing-quality.md"
+      ],
+      "expectations": [
+        "Module 3 workplan follows CTD structure (not arbitrary sections)",
+        "BsAb-specific characterization included beyond standard mAb",
+        "Source document inventory has version tracking",
+        "Writing quality audit includes all 5 passes (not just grammar check)",
+        "Banana Rule applied to terminology across all sections",
+        "42-point quality checklist referenced for self-check"
+      ]
+    },
+    {
+      "id": "WB-EVAL-004",
+      "title": "ADC Tech Transfer + Comparability Strategy",
+      "workflow": "04-tech-transfer-comparability",
+      "modules": ["CMC_Research", "CMC_Forge"],
+      "modes": ["ASSESS", "DRAFT"],
+      "difficulty": "expert",
+      "prompt": "We are developing OL-200, an anti-HER2 ADC with a cleavable linker and MMAE payload. Currently in Phase II at our internal 200L single-use facility. We need to transfer to a CDMO with 500L single-use for Phase III and commercial. DAR control is our most critical CQA. We file in both China and US simultaneously. Please: (1) Assess CQA impact of the transfer. (2) Build a risk register with FMEA scoring. (3) Design a three-step comparability evidence plan with DAR-specific acceptance criteria. (4) Create the tech transfer work package.",
+      "expected_output": {
+        "description": "A comprehensive tech transfer + comparability package with: (a) CQA impact matrix with 10+ attributes, (b) FMEA risk register with RPN scores, (c) DAR-focused three-step comparability plan, (d) Phased tech transfer timeline.",
+        "must_include": [
+          "DAR distribution as highest-risk CQA in assessment",
+          "FMEA with Severity/Occurrence/Detection and RPN calculations",
+          "Three-step comparability with trigger logic for escalation",
+          "Multi-regulatory path analysis (NMPA + FDA)",
+          "ADC-specific considerations (conjugation scale-up, free drug control)",
+          "Reference to ADC case study from CMC Research",
+          "DRAFT header"
+        ]
+      },
+      "files_to_load": [
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/biologic_drug/adc_cmc_zh.md",
+        "knowledge/CMC_Research/resources/zh-CN/cases/frontier_drug/adc_dar_control_case.md",
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/declaration_practice/variation_report.md",
+        "skills/cmc-forge/SKILL.md",
+        "skills/cmc-forge/templates/tech-transfer-template.md",
+        "skills/cmc-forge/templates/change-comparability-template.md",
+        "skills/cmc-forge/playbooks/risk-comparability.md",
+        "skills/cmc-forge/references/regulatory-anchors.md"
+      ],
+      "expectations": [
+        "DAR identified as highest-risk CQA with specific RPN justification",
+        "Conjugation scale-up addressed as critical transfer challenge",
+        "Comparability acceptance criteria include DAR distribution (D0–D8) not just average DAR",
+        "Free drug (MMAE) addressed in risk register",
+        "Multi-regional filing strategy covers both NMPA and FDA",
+        "ADC case study from CMC Research referenced as context"
+      ]
+    },
+    {
+      "id": "WB-EVAL-005",
+      "title": "FDA-Facing English CMC Summary Writing Audit",
+      "workflow": "05-writing-quality-review",
+      "modules": ["CMC_Forge", "Scientific_Writer"],
+      "modes": ["DRAFT", "REVIEW"],
+      "difficulty": "intermediate",
+      "prompt": "I have drafted an English CMC summary for an anti-IL-6R biosimilar (SB-300, tocilizumab biosimilar) for FDA 351(k) submission. Our team is strong in CMC but English regulatory writing is a challenge. Please: (1) Review the following text using the 5-pass writing quality audit. (2) Identify the top 5 priority revisions. (3) Provide a revised version. (4) Give language pattern recommendations for FDA CMC summaries.\n\nHere is the draft:\n'The characterization studies was performed to demonstrate that SB-300 is highly similar to the reference product. The primary structure analysis using peptide mapping and mass spectrometry showed identical sequence. The higher order structure was confirmed by CD spectroscopy, DSC, and HDX-MS which all indicated comparable secondary and tertiary structure. Glycosylation profiles were found to be slightly different but within the range of the reference product lots that was tested. The binding affinity to IL-6R was evaluated and demonstrated to be comparable. Potency was assessed using cell-based assay and showed equivalent biological activity.'",
+      "expected_output": {
+        "description": "A complete writing quality audit with: (a) All 5 passes with findings, (b) Severity ratings (CRITICAL/MAJOR/MINOR), (c) Top 5 Priority Revisions ranked by impact, (d) Revised text with tracked changes, (e) FDA-specific language pattern recommendations.",
+        "must_include": [
+          "Pass 1: Clutter extraction with specific reductions",
+          "Pass 2: Voice/verb vitality fixes (passive → active where appropriate)",
+          "Pass 3: Sentence architecture analysis (length, buried predicates)",
+          "Pass 4: Banana Rule violations identified",
+          "Pass 5: Numerical/citation gaps flagged",
+          "Subject-verb agreement fix ('studies was' → 'studies demonstrated')",
+          "Hedging calibration recommendations for FDA context",
+          "DRAFT header"
+        ]
+      },
+      "files_to_load": [
+        "skills/cmc-forge/SKILL.md",
+        "skills/cmc-forge/references/quality-checklist.md",
+        "skills/scientific-writer/SKILL.md",
+        "skills/scientific-writer/references/writing-quality.md",
+        "skills/scientific-writer/references/section-models.md"
+      ],
+      "expectations": [
+        "All 5 passes completed and documented individually",
+        "CRITICAL rating applied to subject-verb agreement error",
+        "Banana Rule flags 'comparable' vs 'highly similar' inconsistency",
+        "Revised text includes quantitative data placeholders",
+        "Hedging recommendations specific to FDA biosimilar context (not generic)",
+        "Language patterns reference FDA/ICH Q5E conventions"
+      ]
+    },
+    {
+      "id": "WB-EVAL-006",
+      "title": "CMC Readiness Assessment — Pre-IND Biologic",
+      "workflow": "01-cmc-readiness-assessment",
+      "modules": ["CMC_Research", "CMC_Forge"],
+      "modes": ["ASSESS"],
+      "difficulty": "intermediate",
+      "prompt": "We are a Chinese startup developing a novel bispecific antibody (anti-CD3 × CD20) for B-cell lymphoma. We have completed toxicology studies and want to file IND with CDE in 6 months. Our current CMC status: (1) CHO-K1 cell line cloned, not yet banked, (2) Upstream process at 10L scale only, (3) 4 analytical methods qualified, 8 more need development, (4) No stability data, (5) No GMP manufacturing experience, (6) CDMO selected but contract not signed. Please assess our IND CMC readiness and create a 6-month action plan.",
+      "expected_output": {
+        "description": "A structured IND CMC readiness assessment with: (a) Red-Yellow-Green scoring across 8+ dimensions, (b) Must-solve-now vs. can-defer prioritization, (c) 6-month action plan with 2-week sprint structure.",
+        "must_include": [
+          "Cell banking identified as must-solve-now (RED)",
+          "GMP manufacturing identified as critical gap",
+          "Analytical method gap analysis (qualified vs. validated vs. undeveloped)",
+          "CDMO contract urgency flagged",
+          "CDE IND CMC requirements cited from CMC Research",
+          "DRAFT header"
+        ]
+      },
+      "files_to_load": [
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/declaration_practice/ind_cmc_zh.md",
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/china_cmc_special/regulatory_framework.md",
+        "skills/cmc-forge/SKILL.md",
+        "skills/cmc-forge/playbooks/early-prioritization.md",
+        "skills/cmc-forge/playbooks/druggability-assessment.md",
+        "skills/cmc-forge/templates/stage-gate-readiness-template.md"
+      ],
+      "expectations": [
+        "IND CMC requirements correctly referenced from CMC Research (not hallucinated)",
+        "P0–P4 priority framework applied from early-prioritization playbook",
+        "Cell line banking timeline realistically estimated (not 'can be done in 1 week')",
+        "6-month plan has concrete 2-week sprints with deliverables",
+        "Stage-appropriate expectations applied (pre-IND, not BLA-level)"
+      ]
+    },
+    {
+      "id": "WB-EVAL-007",
+      "title": "Post-Approval Change — China + FDA Simultaneous Filing",
+      "workflow": "04-tech-transfer-comparability + 03-china-global-roadmap",
+      "modules": ["CMC_Research", "CMC_Forge"],
+      "modes": ["ASSESS", "PLAN"],
+      "difficulty": "expert",
+      "prompt": "Our approved mAb (MB-2201, anti-IL-6R IgG1) needs a chromatography resin supplier change for the CEX polishing step. The drug is approved in both China (NMPA) and US (FDA). The new resin is the same chemistry but from a different manufacturer. We have 3 commercial batches of data with the current resin. Please: (1) Assess the CQA impact of this change. (2) Determine the regulatory pathway in both China and US. (3) Design a comparability study. (4) Plan the regulatory submission timeline for simultaneous China + US filing.",
+      "expected_output": {
+        "description": "A change impact assessment with cross-regional regulatory strategy: (a) CQA impact hypothesis for 10+ attributes, (b) Dual-pathway regulatory analysis (NMPA + FDA), (c) Comparability study design, (d) Simultaneous filing timeline.",
+        "must_include": [
+          "CQA-by-CQA impact hypothesis (not generic 'process change')",
+          "NMPA classification (record/notification/approval with justification)",
+          "FDA classification (CBE-30/CBE-0/PAS with justification)",
+          "Comparability study with pre-defined acceptance criteria",
+          "CMC Research variation filing template referenced",
+          "DRAFT header"
+        ]
+      },
+      "files_to_load": [
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/declaration_practice/variation_report.md",
+        "knowledge/CMC_Research/resources/zh-CN/templates/compliance/variation_filing_template.md",
+        "knowledge/CMC_Research/CMC_COMPREHENSIVE_GUIDE/cross_category/cmc_difference.md",
+        "skills/cmc-forge/SKILL.md",
+        "skills/cmc-forge/templates/change-comparability-template.md",
+        "skills/cmc-forge/playbooks/risk-comparability.md",
+        "skills/cmc-forge/references/regulatory-anchors.md",
+        "skills/cmc-forge/examples/process-change-example.md"
+      ],
+      "expectations": [
+        "Correct NMPA classification for resin supplier change (not manufacturing site change)",
+        "FDA CBE vs PAS distinction correctly applied",
+        "Comparability acceptance criteria are pre-defined and justified",
+        "Timeline accounts for both NMPA and FDA review cycles",
+        "Process change example from cmc-forge used as structural reference"
+      ]
+    },
+    {
+      "id": "WB-EVAL-008",
+      "title": "Scientific Writing Diagnosis — CMC Rationale Structure",
+      "workflow": "05-writing-quality-review",
+      "modules": ["Scientific_Writer"],
+      "modes": ["DIAGNOSE"],
+      "difficulty": "intermediate",
+      "prompt": "I have written a CMC rationale section for a post-approval change application but I'm not sure about its structure. The section is supposed to justify why a manufacturing process change is acceptable. Please diagnose the structure: map each paragraph to its rhetorical function, identify missing elements, and rate structural issues.\n\nHere is my draft:\n'We changed the chromatography resin supplier for the CEX polishing step. The new resin has the same chemistry and particle size. We ran 3 batches with the new resin and the results were comparable. The impurity profile was similar. The step yield was 85% which is within our historical range. We also did a viral clearance study which showed no change. Therefore we conclude this change is acceptable.'",
+      "expected_output": {
+        "description": "A structural diagnosis with: (a) Paragraph-by-paragraph mapping to rhetorical components, (b) Missing elements identified with severity, (c) Structural issue ratings.",
+        "must_include": [
+          "Mapping of each sentence to a rhetorical function",
+          "Missing: change context and classification",
+          "Missing: risk assessment justification",
+          "Missing: regulatory pathway discussion",
+          "Missing: comparability study design (acceptance criteria defined a priori)",
+          "Missing: post-implementation monitoring plan",
+          "Severity ratings for each gap (CRITICAL/MAJOR/MINOR)",
+          "DRAFT header"
+        ]
+      },
+      "files_to_load": [
+        "skills/scientific-writer/SKILL.md",
+        "skills/scientific-writer/references/section-models.md"
+      ],
+      "expectations": [
+        "DIAGNOSE mode used (not REVIEW or WRITE)",
+        "Each sentence mapped to a component in the section model",
+        "Critical gaps identified: no risk assessment, no pre-defined acceptance criteria",
+        "Structural issues rated with severity, not just listed",
+        "Recommendation to restructure following CMC Forge change-comparability template"
+      ]
+    }
+  ],
+  "scoring": {
+    "total_scenarios": 8,
+    "coverage": {
+      "workflows": {
+        "01-cmc-readiness-assessment": 1,
+        "02-module3-authoring": 1,
+        "03-china-global-roadmap": 2,
+        "04-tech-transfer-comparability": 2,
+        "05-writing-quality-review": 2
+      },
+      "modules": {
+        "CMC_Research": 6,
+        "CMC_Forge": 7,
+        "Scientific_Writer": 3
+      },
+      "modes": {
+        "DRAFT": 4,
+        "ASSESS": 5,
+        "PLAN": 3,
+        "REVIEW": 2,
+        "DIAGNOSE": 1,
+        "TRAIN": 0
+      },
+      "difficulty": {
+        "intermediate": 3,
+        "advanced": 3,
+        "expert": 2
+      }
+    },
+    "pass_criteria": {
+      "all_must_include": "Every item in must_include must be present in output",
+      "minimum_expectations_met": "At least 4 of 5 expectations must be satisfied",
+      "compliance_header": "DRAFT header present on all outputs",
+      "no_fabricated_data": "No invented batch data, specifications, or regulatory conclusions"
+    }
+  }
+}
