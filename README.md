@@ -1,4 +1,4 @@
-# PharmaSee CMC Workbench
+# PharmaCMC Workbench
 
 > Unified AI-assisted CMC workbench for China pharmaceutical companies — covering CDE/NMPA filings, global FDA/EMA readiness, Module 3 authoring, tech transfer, comparability, post-approval changes, scientific writing, and English quality audit.
 
@@ -6,7 +6,7 @@
 
 ## What Is This?
 
-**PharmaSee CMC Workbench** integrates three specialized modules into one coherent environment:
+**PharmaCMC Workbench** integrates three specialized modules into one coherent environment:
 
 | Module | Role | Source Project |
 |--------|------|---------------|
@@ -158,7 +158,7 @@ For public publishing, see `PUBLIC_RELEASE.md`. Public packages should exclude p
 
 ## Version
 
-**PharmaSee CMC Workbench v1.0** — April 2026
+**PharmaCMC Workbench v1.0** — April 2026
 
 | Component | Version |
 |-----------|---------|
